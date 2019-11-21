@@ -2,12 +2,10 @@ pipeline {
   agent {
     docker {
       image 'node:6-alpine'
-      args '''-u 0:0 -v jenkins-data:/var/jenkins_home'''
+      args '-u 0:0 -v jenkins-data:/var/jenkins_home'
     }
+
   }
-environment {
-        CI = 'true'
-    }
   stages {
     stage('Build') {
       steps {
@@ -15,10 +13,14 @@ environment {
       }
     }
 
-  stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
-            }
-        }
+    stage('Test') {
+      steps {
+        sh './jenkins/scripts/test.sh'
+      }
+    }
+
+  }
+  environment {
+    CI = 'true'
   }
 }
