@@ -10,7 +10,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
+        webappImage.inside("-u root") {
+          sh 'npm install'
+        }
       }
     }
 
