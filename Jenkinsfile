@@ -6,6 +6,7 @@ pipeline {
       args '-p 3000:3000'
       args '-v jenkins-data:/var/jenkins_home'
     }
+  }
   stages {
     stage('Build') {
       steps {
