@@ -4,15 +4,11 @@ pipeline {
       image 'node:6-alpine'
       args ' -p 3000:3000'
     }
-    environment {
-        HOME = '.'
-    }
   stages {
     stage('Build') {
       steps {
-        webappImage.inside("-u root") {
-          sh 'npm install'
-        }
+        export HOME=/tmp ;  npm config set cache /tmp
+        sh 'npm install'
       }
     }
 
