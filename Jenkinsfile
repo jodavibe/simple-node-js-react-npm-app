@@ -6,7 +6,7 @@ pipeline {
     }
   environment {
       npm_config_cache = "npm-cache"
-      HOME = '.'
+      HOME = '/home/jenkins/jenkins'
     }
   stages {
     stage('Build') {
