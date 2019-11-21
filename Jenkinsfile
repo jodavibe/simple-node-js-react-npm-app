@@ -7,6 +7,7 @@ pipeline {
       args '-v jenkins-data:/var/jenkins_home'
     }
   }
+  environment { HOME="." } 
   stages {
     stage('Build') {
       steps {
