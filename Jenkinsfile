@@ -10,6 +10,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'sudo chown -r jenkins:jenkins /home/jenkins/jenkins/workspace'
         sh 'npm install'
       }
     }
