@@ -2,7 +2,8 @@ pipeline {
   agent {
     docker {
       image 'node:6-alpine'
-      args '-v jenkins-data:/var/jenkins_home'
+      args '''-u jenkins:jenkins
+-v jenkins-data:/var/jenkins_home'''
     }
 
   }
