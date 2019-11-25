@@ -2,7 +2,11 @@ pipeline {
   agent {
     docker {
       image 'node:6-alpine'
-      args '-v jenkins-data:/var/jenkins_home'
+      args '''RUN groupadd -g 128 go \\
+&& useradd -m -u 126 -g go go
+USER go
+
+-v jenkins-data:/var/jenkins_home'''
     }
 
   }
